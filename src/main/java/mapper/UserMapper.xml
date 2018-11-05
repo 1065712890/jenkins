@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 设置为IUserDao接口方法提供sql语句配置 -->
+<mapper namespace="mapper.UserMapper">
+    <select id="getAllUser" resultType="user">
+        SELECT * FROM user
+    </select>
+
+    <insert id="addUser" parameterType="user">
+      insert into user(username, password) values(#{username}, #{password})
+    </insert>
+    
+    <select id="selectByName" resultType="user">
+        select * from user where username = #{username}
+    </select>
+
+    <select id="selectByNameAndWord" resultType="user">
+        select * from user where username = #{username} and password = #{password}
+    </select>
+</mapper>
